@@ -125,7 +125,7 @@ export default function ServiceDetail() {
               </div>
               <div className="flex items-center gap-6 pb-2">
                 <div className="text-right">
-                  <p className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-1">Professionals</p>
+                  <p className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-1">Thekedars</p>
                   <p className="font-display text-[24px] font-black text-ink">24 available</p>
                 </div>
                 <div className="w-px h-12 bg-rule"></div>
@@ -219,7 +219,7 @@ export default function ServiceDetail() {
                 <div className="w-16 h-16 bg-bg2 rounded-full flex items-center justify-center mx-auto mb-6 text-muted">
                   <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0l-8 4-8-4"></path></svg>
                 </div>
-                <p className="text-ink text-lg font-bold">No professionals found</p>
+                <p className="text-ink text-lg font-bold">No thekedars found</p>
                 <p className="text-mid font-medium mt-2">Try adjusting your filters or search terms.</p>
               </div>
             )}
@@ -271,7 +271,7 @@ export default function ServiceDetail() {
                       </div>
 
                       <p className="text-mid text-[13px] font-medium leading-relaxed mb-8 line-clamp-2 opacity-80 italic">
-                        &quot;{t.experience || 'Experienced professional with high commitment to quality and deadlines.'}&quot;
+                        &quot;{t.experience || 'Experienced contractor with high commitment to quality and deadlines.'}&quot;
                       </p>
 
                       <div className="flex gap-3">
@@ -285,7 +285,7 @@ export default function ServiceDetail() {
                           onClick={() => handleBook(t.id)}
                           className="flex-[2] py-3 px-4 rounded-xl bg-accent text-white font-bold text-[13px] shadow-sm hover:shadow-md hover:bg-ink active:scale-[0.98] transition-all uppercase tracking-widest"
                         >
-                          Book Professional
+                          Book Thekedar
                         </button>
                       </div>
                     </div>
@@ -299,7 +299,7 @@ export default function ServiceDetail() {
                       disabled={loadingMore}
                       className="px-10 py-4 rounded-full border border-rule bg-white text-ink font-bold text-[13px] uppercase tracking-[0.2em] shadow-sm hover:shadow-premium-hover hover:border-muted transition-all active:scale-[0.98] disabled:opacity-50"
                     >
-                      {loadingMore ? 'Syncing data...' : 'Load more professionals'}
+                      {loadingMore ? 'Syncing data...' : 'Load more thekedars'}
                     </button>
                   </div>
                 )}

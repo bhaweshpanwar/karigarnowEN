@@ -93,7 +93,7 @@ export default function ThekedarProfile() {
           <span className="text-[10px] font-bold tracking-widest uppercase text-accent">Contractor Identity</span>
         </div>
         <h1 className="font-display text-[48px] font-black text-ink tracking-tight leading-none">My Profile</h1>
-        <p className="text-mid font-medium mt-2">Manage your professional bio, rates, and services.</p>
+        <p className="text-mid font-medium mt-2">Manage your business bio, rates, and services.</p>
       </div>
 
       {/* Stats Row */}
@@ -115,7 +115,7 @@ export default function ThekedarProfile() {
       <div className="bg-white border border-rule rounded-2xl p-8 mb-8 shadow-premium">
         <h2 className="text-[20px] font-display font-bold text-ink mb-8 flex items-center gap-3">
           <span className="w-1.5 h-6 bg-accent2 rounded-full"></span>
-          Professional Information
+          Operational Information
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -157,7 +157,7 @@ export default function ThekedarProfile() {
             />
           </div>
           <div className="md:col-span-2 space-y-1.5">
-            <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Professional Bio</label>
+            <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Business Bio</label>
             <textarea
               value={bio}
               onChange={e => setBio(e.target.value)}

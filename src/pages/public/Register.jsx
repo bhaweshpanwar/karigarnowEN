@@ -98,7 +98,7 @@ export default function Register() {
 
         <div className="relative z-10 space-y-4 max-w-sm">
           {[
-            { n: '01', t: 'Select your professional role' },
+            { n: '01', t: 'Select your role' },
             { n: '02', t: 'Provide your verified details' },
             { n: '03', t: 'Start your journey on KarigarNow' },
           ].map((item, i) => (

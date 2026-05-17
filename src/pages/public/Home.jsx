@@ -74,7 +74,7 @@ export default function Home() {
               
               <p className="text-[18px] md:text-[20px] text-mid mb-10 leading-relaxed max-w-lg font-medium">
                 Find verified local contractors for plumbing, electrical, and more. 
-                <span className="text-ink"> Professional labor, simplified.</span>
+                <span className="text-ink"> Skilled labor, simplified.</span>
               </p>
               
               <div className="flex flex-wrap gap-4">
@@ -105,7 +105,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-[13px] text-mid font-medium">
-                Joined by over <span className="text-ink font-bold">5,000+</span> professionals this month.
+                Joined by over <span className="text-ink font-bold">5,000+</span> thekedars this month.
               </p>
             </div>
           </div>
@@ -156,10 +156,10 @@ export default function Home() {
             <div>
               <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-accent2 mb-6">Expertise</p>
               <h2 className="font-display text-[48px] font-black tracking-tighter leading-[0.95] text-ink mb-6">
-                Tailored <br/>Professional <br/>Services
+                Tailored <br/>Expert <br/>Services
               </h2>
               <p className="text-[15px] leading-relaxed text-mid font-medium">
-                Hand-picked, verified professionals for every home need. From minor repairs to major renovations.
+                Hand-picked, verified contractors for every home need. From minor repairs to major renovations.
               </p>
             </div>
             <button
@@ -246,7 +246,7 @@ export default function Home() {
                 </p>
               </div>
               <p className="text-[15px] text-white/40 max-w-sm leading-relaxed mb-8">
-                Revolutionizing the way India hires skilled labor. Reliable, verified, and professional contractors at your fingertips.
+                Revolutionizing the way India hires skilled labor. Reliable, verified, and expert contractors at your fingertips.
               </p>
               <div className="flex gap-4">
                 {[1,2,3,4].map(i => (

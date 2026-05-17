@@ -75,13 +75,13 @@ export default function Login() {
             <span className="text-accent3 italic font-medium">back.</span>
           </h1>
           <p className="text-[18px] text-white/60 max-w-sm leading-relaxed font-medium">
-            Log in to manage your professional labour requests or your contractor dashboard.
+            Log in to manage your service requests or your contractor dashboard.
           </p>
         </div>
 
         <div className="relative z-10 space-y-4 max-w-sm">
           {[
-            { n: '2.4k+', t: 'Verified Professionals' },
+            { n: '2.4k+', t: 'Verified Contractors' },
             { n: '18k+', t: 'Successful Jobs' },
             { n: '4.8★', t: 'Platform Rating' },
           ].map((item, i) => (

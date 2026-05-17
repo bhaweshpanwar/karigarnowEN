@@ -57,12 +57,12 @@ export default function ThekedarProfile() {
         <nav className="mb-10 flex items-center gap-3 text-[12px] font-bold uppercase tracking-widest text-muted">
           <Link to="/" className="hover:text-accent2 transition-colors">Home</Link>
           <svg className="w-3 h-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
-          <Link to="/services" className="hover:text-accent2 transition-colors">Professionals</Link>
+          <Link to="/services" className="hover:text-accent2 transition-colors">Thekedars</Link>
           <svg className="w-3 h-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
           <span className="text-ink">{thekedar?.name || '...'}</span>
         </nav>
-
-        {loading && (
+        ...
+                  <p className="text-[18px] font-bold text-ink">{thekedar.experience || 'Verified Contractor'}</p>
           <div className="animate-pulse space-y-8">
             <div className="h-64 bg-white rounded-3xl border border-rule/50 shadow-sm" />
             <div className="h-32 bg-white rounded-3xl border border-rule/50 shadow-sm" />
@@ -123,11 +123,11 @@ export default function ThekedarProfile() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div className="p-5 rounded-2xl bg-bg border border-rule group-hover:border-accent2/20 transition-all shadow-inner-soft">
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted mb-2">Industry Experience</p>
-                  <p className="text-[18px] font-bold text-ink">{thekedar.experience || 'Verified Professional'}</p>
+                  <p className="text-[18px] font-bold text-ink">{thekedar.experience || 'Verified Contractor'}</p>
                 </div>
                 <div className="p-5 rounded-2xl bg-bg border border-rule group-hover:border-accent2/20 transition-all shadow-inner-soft">
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted mb-2">Active Workforce</p>
-                  <p className="text-[18px] font-bold text-ink">{(thekedar.team_size || thekedar.workers?.length || 1)} Professional Workers</p>
+                  <p className="text-[18px] font-bold text-ink">{(thekedar.team_size || thekedar.workers?.length || 1)} Workers</p>
                 </div>
               </div>
 
@@ -143,7 +143,7 @@ export default function ThekedarProfile() {
               <div className="bg-white rounded-[32px] border border-rule p-8 lg:p-10 mb-8 shadow-premium">
                 <h2 className="font-display text-[24px] font-black text-ink mb-8 flex items-center gap-4">
                   <span className="w-1.5 h-6 bg-accent2 rounded-full"></span>
-                  Professional Expertise
+                  Services Offered
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {thekedar.services.map(svc => (

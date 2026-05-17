@@ -49,7 +49,7 @@ function OtpDisplayBox({ otp }) {
         ))}
       </div>
       <p className="text-[13px] font-medium text-mid leading-relaxed max-w-xs mx-auto">
-        Share this unique code with your professional <span className="text-ink font-bold">to verify arrival</span> at the customer's location.
+        Share this unique code with your worker <span className="text-ink font-bold">to verify arrival</span> at the customer's location.
       </p>
     </div>
   );
@@ -342,7 +342,7 @@ export default function JobDetail() {
               </div>
               <div>
                 <p className="text-[10px] font-bold text-muted uppercase tracking-widest mb-2">Deployed Force</p>
-                <p className="text-[16px] font-bold text-ink">{booking.workers_needed} Professional Specialist{booking.workers_needed > 1 ? 's' : ''}</p>
+                <p className="text-[16px] font-bold text-ink">{booking.workers_needed} Worker{booking.workers_needed > 1 ? 's' : ''}</p>
               </div>
             </div>
 

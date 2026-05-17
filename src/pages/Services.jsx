@@ -45,14 +45,14 @@ export default function Services() {
         <div className="max-w-[1400px] mx-auto relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ap border border-accent2/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-accent2"></span>
-            <span className="text-[10px] font-bold tracking-widest uppercase text-accent">Professional Catalogue</span>
+            <span className="text-[10px] font-bold tracking-widest uppercase text-accent">Service Catalogue</span>
           </div>
           <h1 className="font-display text-[48px] md:text-[64px] font-black text-ink tracking-tight leading-[0.95] mb-6">
             What do you need <br />
             <span className="text-accent2 italic font-medium">fixed today?</span>
           </h1>
           <p className="text-mid text-[16px] max-w-lg font-medium leading-relaxed">
-            Select from our curated list of verified professional services. Reliable hands for every home project.
+            Select from our curated list of verified services. Reliable hands for every home project.
           </p>
           
           <div className="mt-10 relative max-w-md">
@@ -128,7 +128,7 @@ export default function Services() {
                 </div>
 
                 <div className="flex items-center gap-2 text-accent text-[12px] font-bold uppercase tracking-widest translate-x-[-10px] group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  View Professionals
+                  View
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
               </div>

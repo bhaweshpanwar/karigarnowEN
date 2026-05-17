@@ -211,7 +211,7 @@ export default function CreateBooking() {
             <span className="text-ink">Booking</span>
           </nav>
           <h1 className="font-display text-[40px] font-black text-ink tracking-tight leading-none mb-4">Request Service</h1>
-          <p className="text-mid font-medium">Finalize your professional labor request details.</p>
+          <p className="text-mid font-medium">Finalize your service request details.</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 items-start">

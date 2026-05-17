@@ -119,7 +119,7 @@ function WorkerModal({ worker, services, onClose, onSubmit }) {
       <div className="w-full max-w-md bg-white rounded-2xl p-8 shadow-premium border border-rule animate-in slide-up">
         <div className="flex justify-between items-center mb-8">
           <h3 className="text-[24px] font-display font-black text-ink tracking-tight">
-            {worker ? 'Update Worker' : 'Add Professional'}
+            {worker ? 'Update Worker' : 'Add Worker'}
           </h3>
           <button onClick={onClose} className="p-2 text-muted hover:text-ink transition-colors">
              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -193,7 +193,7 @@ function WorkerModal({ worker, services, onClose, onSubmit }) {
             disabled={submitting}
             className="w-full py-4 bg-accent text-white text-[15px] font-bold rounded-xl shadow-premium hover:shadow-premium-hover transition-all disabled:opacity-50"
           >
-            {submitting ? 'Saving Professional...' : worker ? 'Update Information' : 'Add to Team'}
+            {submitting ? 'Saving Worker...' : worker ? 'Update Information' : 'Add to Team'}
           </button>
         </form>
       </div>
@@ -290,7 +290,7 @@ export default function MyWorkers() {
           </div>
           <h1 className="font-display text-[48px] font-black text-ink tracking-tight leading-none mb-2">My Team</h1>
           <p className="text-mid font-medium">
-            You have <span className="text-ink font-bold">{workers.length} registered professionals</span> in your team.
+            You have <span className="text-ink font-bold">{workers.length} registered workers</span> in your team.
           </p>
         </div>
         
@@ -374,7 +374,7 @@ export default function MyWorkers() {
             <div className="w-16 h-16 bg-rbg rounded-full flex items-center justify-center mb-6 text-red">
                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
             </div>
-            <h3 className="text-[20px] font-display font-black text-ink tracking-tight mb-2">Remove Professional?</h3>
+            <h3 className="text-[20px] font-display font-black text-ink tracking-tight mb-2">Remove Worker?</h3>
             <p className="text-mid text-[14px] mb-8 leading-relaxed">
               Are you sure you want to remove <span className="text-ink font-bold">{deleteWorker.name}</span>? This action cannot be undone if they have no active jobs.
             </p>

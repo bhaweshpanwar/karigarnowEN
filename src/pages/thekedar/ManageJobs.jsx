@@ -221,7 +221,7 @@ function DispatchModal({ booking, workers, onClose, onDispatch }) {
         <div className="flex justify-between items-center mb-8">
           <div>
             <h3 className="text-[24px] font-display font-black text-ink tracking-tight leading-none">Dispatch Team</h3>
-            <p className="text-muted text-[13px] font-medium mt-2">Select {needed} professional{needed > 1 ? 's' : ''} for this job.</p>
+            <p className="text-muted text-[13px] font-medium mt-2">Select {needed} worker{needed > 1 ? 's' : ''} for this job.</p>
           </div>
           <button onClick={onClose} className="p-2 text-muted hover:text-ink transition-colors">
              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>

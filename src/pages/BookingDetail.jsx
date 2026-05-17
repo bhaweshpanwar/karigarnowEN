@@ -50,7 +50,7 @@ function OtpDisplayBox({ otp }) {
         ))}
       </div>
       <p className="text-[13px] font-medium text-mid leading-relaxed max-w-xs mx-auto">
-        Share this unique code with the professional <span className="text-ink font-bold">only after they arrive</span> at your location.
+        Share this unique code with the thekedar <span className="text-ink font-bold">only after they arrive</span> at your location.
       </p>
     </div>
   );
@@ -390,7 +390,7 @@ export default function BookingDetail() {
                     </div>
                     <h3 className="text-blue font-bold text-[16px] mb-2">Preparing Dispatch</h3>
                     <p className="text-mid text-[13px] font-medium leading-relaxed max-w-sm mx-auto">
-                      The professional is organizing the labor force. You will receive an arrival verification code once they are en route.
+                      The thekedar is organizing the labor force. You will receive an arrival verification code once they are en route.
                     </p>
                   </div>
                 )}
@@ -408,7 +408,7 @@ export default function BookingDetail() {
                     <div>
                       <h3 className="text-green font-black uppercase tracking-widest text-[14px] mb-1">Session Active</h3>
                       <p className="text-mid text-[13px] font-medium leading-relaxed">
-                        Professional verified successfully. Labor force is currently working on site.
+                        Arrival verified successfully. Labor force is currently working on site.
                       </p>
                     </div>
                   </div>
@@ -424,7 +424,7 @@ export default function BookingDetail() {
                     </div>
                     <div>
                       <p className="text-[10px] font-bold text-muted uppercase tracking-widest mb-1">Labor Force</p>
-                      <p className="text-[15px] font-bold text-ink">{booking.workers_needed} Professional{booking.workers_needed > 1 ? 's' : ''}</p>
+                      <p className="text-[15px] font-bold text-ink">{booking.workers_needed} Worker{booking.workers_needed > 1 ? 's' : ''}</p>
                     </div>
                   </div>
                   
@@ -540,7 +540,7 @@ export default function BookingDetail() {
                   {booking.booking_status === 'completed' && !booking.has_review && (
                     <div className="bg-white rounded-3xl p-8 border border-rule shadow-premium animate-in slide-up">
                       <h2 className="text-[14px] font-black uppercase tracking-widest text-ink mb-2">Quality Review</h2>
-                      <p className="text-[12px] text-mid font-medium mb-6">How was your professional experience?</p>
+                      <p className="text-[12px] text-mid font-medium mb-6">How was your service experience?</p>
                       <form onSubmit={handleReviewSubmit} className="space-y-6">
                         <StarRating value={rating} onChange={setRating} />
                         <textarea

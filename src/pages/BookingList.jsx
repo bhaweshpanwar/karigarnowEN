@@ -133,10 +133,10 @@ export default function BookingList() {
               <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
             </div>
             <h3 className="text-ink font-display text-2xl font-bold mb-3">No bookings found</h3>
-            <p className="text-mid font-medium mb-8 max-w-sm mx-auto leading-relaxed">It looks like you haven&apos;t scheduled any services yet. Our professionals are ready to help!</p>
+            <p className="text-mid font-medium mb-8 max-w-sm mx-auto leading-relaxed">It looks like you haven&apos;t scheduled any services yet. Our thekedars are ready to help!</p>
             <Link to="/services"
               className="inline-flex items-center px-8 py-4 rounded-xl bg-accent text-white font-display font-black text-[14px] uppercase tracking-widest hover:bg-ink transition-all shadow-premium hover:shadow-premium-hover">
-              Browse Professionals
+              Browse Services
             </Link>
           </div>
         )}

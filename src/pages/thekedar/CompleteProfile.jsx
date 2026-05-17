@@ -110,7 +110,7 @@ export default function CompleteProfile() {
           </div>
           <h1 className="font-display text-[48px] font-black text-ink tracking-tight leading-none mb-4">Complete Your Profile</h1>
           <p className="text-mid font-medium max-w-lg mx-auto leading-relaxed">
-            Finalize your professional identity on KarigarNow to start receiving service requests in your area.
+            Finalize your profile identity on KarigarNow to start receiving service requests in your area.
           </p>
         </div>
 
@@ -119,13 +119,12 @@ export default function CompleteProfile() {
           <div className="bg-white border border-rule rounded-3xl p-8 lg:p-10 shadow-premium">
             <h2 className="text-[22px] font-display font-bold text-ink mb-8 flex items-center gap-3">
                <span className="w-1.5 h-6 bg-accent2 rounded-full"></span>
-               Professional Identity
+               Business Identity
             </h2>
             
             <div className="space-y-6">
-              <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Professional Bio</label>
-                <textarea
+            <div className="space-y-1.5">
+              <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Business Bio</label>                <textarea
                   name="bio"
                   value={formData.bio}
                   onChange={handleInputChange}

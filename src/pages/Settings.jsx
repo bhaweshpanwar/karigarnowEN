@@ -25,7 +25,6 @@ export default function Settings() {
   const [editingAddressId, setEditingAddressId] = useState(null);
   const [addressForm, setAddressForm] = useState({
     address_line1: '',
-    address_line2: '',
     city: '',
     state: '',
     country: 'India',
@@ -104,7 +103,6 @@ export default function Settings() {
   const resetAddressForm = () => {
     setAddressForm({
       address_line1: '',
-      address_line2: '',
       city: '',
       state: '',
       country: 'India',
@@ -118,7 +116,6 @@ export default function Settings() {
   const handleAddressEdit = (address) => {
     setAddressForm({
       address_line1: address.address_line1 || '',
-      address_line2: address.address_line2 || '',
       city: address.city || '',
       state: address.state || '',
       country: address.country || 'India',
@@ -130,6 +127,11 @@ export default function Settings() {
   };
 
   const handleAddressSave = async () => {
+    if (!editingAddressId && addresses.length >= 2) {
+      showToast('Maximum 2 addresses allowed', 'error');
+      return;
+    }
+
     if (!addressForm.address_line1 || !addressForm.city || !addressForm.state || !addressForm.postal_code) {
       showToast('Please fill all required fields', 'error');
       return;
@@ -333,12 +335,16 @@ export default function Settings() {
               <p className="text-[13px] text-muted font-medium">Manage locations for service bookings.</p>
             </div>
             {!addressFormVisible && (
-              <button
-                onClick={() => { setAddressFormVisible(true); setEditingAddressId(null); resetAddressForm(); }}
-                className="px-4 py-2 text-[12px] font-bold text-accent2 uppercase tracking-widest hover:bg-ap rounded-lg transition-all"
-              >
-                + Add New
-              </button>
+              addresses.length < 2 ? (
+                <button
+                  onClick={() => { resetAddressForm(); setAddressFormVisible(true); }}
+                  className="px-4 py-2 text-[12px] font-bold text-accent2 uppercase tracking-widest hover:bg-ap rounded-lg transition-all"
+                >
+                  + Add Address
+                </button>
+              ) : (
+                <span className="text-xs text-[#6B6560] italic font-medium">Max 2 addresses added</span>
+              )
             )}
           </div>
 
@@ -352,7 +358,7 @@ export default function Settings() {
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               </div>
               <p className="text-mid font-bold mb-4">No addresses saved yet</p>
-              <button onClick={() => setAddressFormVisible(true)} className="text-accent2 font-bold hover:underline uppercase text-[11px] tracking-widest">
+              <button onClick={() => { resetAddressForm(); setAddressFormVisible(true); }} className="text-accent2 font-bold hover:underline uppercase text-[11px] tracking-widest">
                 Add your first address
               </button>
             </div>
@@ -368,7 +374,7 @@ export default function Settings() {
                           <span className="px-2 py-0.5 rounded-full text-[9px] font-black bg-accent text-white uppercase tracking-widest">Primary</span>
                         )}
                       </div>
-                      <p className="text-[13px] text-mid font-medium">{addr.address_line2 ? `${addr.address_line2}, ` : ''}{addr.city}, {addr.state} {addr.postal_code}</p>
+                      <p className="text-[13px] text-mid font-medium">{addr.city}, {addr.state} {addr.postal_code}</p>
                       <p className="text-[12px] text-muted font-bold uppercase tracking-widest mt-1">{addr.country}</p>
                     </div>
                     <div className="flex gap-2">
@@ -393,15 +399,9 @@ export default function Settings() {
                   <h3 className="text-[18px] font-display font-bold text-ink">{editingAddressId ? 'Edit Address' : 'Add New Address'}</h3>
                   
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Address Line 1 *</label>
+                    <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Address Line *</label>
                     <input type="text" value={addressForm.address_line1} onChange={e => setAddressForm(f => ({ ...f, address_line1: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-rule text-ink text-[15px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/5 transition-all shadow-inner-soft" placeholder="House/Flat No., Street" />
-                  </div>
-                  
-                  <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold text-muted uppercase tracking-widest px-0.5">Address Line 2</label>
-                    <input type="text" value={addressForm.address_line2} onChange={e => setAddressForm(f => ({ ...f, address_line2: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-rule text-ink text-[15px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/5 transition-all shadow-inner-soft" placeholder="Landmark, Area" />
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-rule text-ink text-[15px] outline-none focus:border-accent focus:ring-4 focus:ring-accent/5 transition-all shadow-inner-soft" placeholder="House/Flat No., Street, Landmark" />
                   </div>
                   
                   <div className="grid grid-cols-2 gap-4">
