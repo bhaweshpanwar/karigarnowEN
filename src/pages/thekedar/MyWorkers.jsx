@@ -293,9 +293,11 @@ export default function MyWorkers() {
             You have <span className="text-ink font-bold">{workers.length} registered professionals</span> in your team.
           </p>
         </div>
+        
+        {/* Responsive Add Button */}
         <button
           onClick={() => { setEditWorker(null); setModalOpen(true); }}
-          className="px-8 py-4 bg-accent text-white text-[15px] font-bold rounded-xl shadow-premium hover:shadow-premium-hover hover:-translate-y-1 transition-all flex items-center gap-2"
+          className="w-full md:w-auto px-8 py-4 bg-accent text-white text-[15px] font-bold rounded-xl shadow-premium hover:shadow-premium-hover transition-all flex items-center justify-center gap-2"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
           Add New Worker

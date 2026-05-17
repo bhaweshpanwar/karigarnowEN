@@ -202,6 +202,13 @@ export default function ThekedarLayout({ children }) {
             </Link>
           );
         })}
+        <button
+          onClick={handleLogout}
+          className="flex flex-col items-center gap-1 px-3 py-1.5 rounded-2xl text-muted hover:text-red transition-all"
+        >
+          <NavIcon name="logout" />
+          <span className="text-[9px] font-black uppercase tracking-widest">Exit</span>
+        </button>
       </div>
     </div>
   );

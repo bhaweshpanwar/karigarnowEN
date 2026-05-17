@@ -345,12 +345,12 @@ export default function ManageJobs() {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-2 mb-10 p-1.5 rounded-2xl bg-white border border-rule shadow-premium max-w-2xl">
+      <div className="grid grid-cols-2 gap-2 mb-10 p-1.5 rounded-2xl bg-white border border-rule shadow-premium max-w-2xl">
         {TABS.map(tab => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 py-3 rounded-xl text-[13px] font-bold uppercase tracking-widest transition-all ${
+            className={`py-3 rounded-xl text-[13px] font-bold uppercase tracking-widest transition-all ${
               activeTab === tab 
                 ? 'bg-accent text-white shadow-md' 
                 : 'text-muted hover:text-ink hover:bg-bg'
