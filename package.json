@@ -7,7 +7,7 @@
     "dev": "vite",
     "dev:watch": "nodemon --watch src --ext js,jsx --ignore node_modules --exec \"vite\"",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host 0.0.0.0 --port 10000"
   },
   "dependencies": {
     "axios": "^1.7.9",
