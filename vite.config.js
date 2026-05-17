@@ -8,13 +8,14 @@ export default defineConfig({
     host: true,
     allowedHosts: [
       'karigarnowen.onrender.com',
-      '.onrender.com',  
+      '.onrender.com',
       'localhost'
     ],
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: process.env.VITE_API_URL || 'http://localhost:8080',
         changeOrigin: true,
+        secure: true,
       }
     }
   },
