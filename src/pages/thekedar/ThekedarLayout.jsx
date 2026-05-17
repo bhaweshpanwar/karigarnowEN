@@ -184,30 +184,30 @@ export default function ThekedarLayout({ children }) {
       </main>
 
       {/* ── MOBILE NAV ── */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-rule flex items-center justify-around py-3 px-2 z-[400] shadow-premium">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-xl border-t border-rule flex items-center overflow-x-auto scrollbar-hide py-3 px-6 z-[400] shadow-premium gap-8">
         {navItems.map(item => {
           const active = isActive(item.to);
           return (
             <Link
               key={item.to}
               to={item.to}
-              className={`flex flex-col items-center gap-1 px-3 py-1.5 rounded-2xl transition-all ${
+              className={`flex flex-col items-center gap-1 shrink-0 transition-all ${
                 active ? 'text-accent' : 'text-muted'
               }`}
             >
               <div className={`${active ? 'scale-110' : ''} transition-transform`}>
                 <NavIcon name={item.icon} />
               </div>
-              <span className="text-[9px] font-black uppercase tracking-widest">{item.label.split(' ')[0]}</span>
+              <span className="text-[10px] font-black uppercase tracking-widest">{item.label.split(' ')[0]}</span>
             </Link>
           );
         })}
         <button
           onClick={handleLogout}
-          className="flex flex-col items-center gap-1 px-3 py-1.5 rounded-2xl text-muted hover:text-red transition-all"
+          className="flex flex-col items-center gap-1 shrink-0 text-muted hover:text-red transition-all"
         >
           <NavIcon name="logout" />
-          <span className="text-[9px] font-black uppercase tracking-widest">Exit</span>
+          <span className="text-[10px] font-black uppercase tracking-widest">Exit</span>
         </button>
       </div>
     </div>
