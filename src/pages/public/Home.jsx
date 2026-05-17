@@ -85,7 +85,7 @@ export default function Home() {
                   Book a Service
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 </button>
-                {(!user || user.role !== 'thekedar') && (
+                {!user && (
                   <button
                     onClick={() => navigate('/register')}
                     className="px-8 py-4 bg-white border border-rule text-ink font-bold rounded-lg hover:border-ink hover:bg-bg2 transition-all"
@@ -234,61 +234,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOOTER ── */}
-      <footer className="bg-ink pt-20 pb-12 px-6 lg:px-12 border-t border-white/5">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr] gap-16 mb-20">
-            <div>
-              <div className="flex items-center gap-2 mb-8">
-                <div className="w-10 h-10 bg-accent2 rounded-xl flex items-center justify-center text-white font-display font-black text-xl">K</div>
-                <p className="font-display text-[24px] font-bold text-white tracking-tight">
-                  Karigar<span className="text-accent2">Now</span>
-                </p>
-              </div>
-              <p className="text-[15px] text-white/40 max-w-sm leading-relaxed mb-8">
-                Revolutionizing the way India hires skilled labor. Reliable, verified, and expert contractors at your fingertips.
-              </p>
-              <div className="flex gap-4">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 cursor-pointer transition-all">
-                    <span className="text-[10px]">●</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-white text-[13px] font-bold uppercase tracking-widest mb-8">Product</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Browse Services</a></li>
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">How it works</a></li>
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Verify Worker</a></li>
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Escrow Payments</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white text-[13px] font-bold uppercase tracking-widest mb-8">Support</h4>
-              <ul className="space-y-4">
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Help Center</a></li>
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Terms of Service</a></li>
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Privacy Policy</a></li>
-                <li><a href="#" className="text-white/40 hover:text-white text-[14px] transition-colors font-medium">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[12px] text-white/20 font-medium">
-              &copy; {new Date().getFullYear()} KarigarNow. Crafting excellence across India.
-            </p>
-            <div className="flex items-center gap-6">
-              <span className="text-[12px] text-white/20 font-medium cursor-pointer hover:text-white/40">Bangalore</span>
-              <span className="text-[12px] text-white/20 font-medium cursor-pointer hover:text-white/40">Mumbai</span>
-              <span className="text-[12px] text-white/20 font-medium cursor-pointer hover:text-white/40">Delhi</span>
-            </div>
-          </div>
-        </div>
-      </footer>
-      
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }

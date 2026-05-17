@@ -1,11 +1,13 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import Navbar from '../components/common/Navbar';
+import Footer from '../components/common/Footer';
 
 const Home = lazy(() => import('../pages/public/Home'));
 const Login = lazy(() => import('../pages/public/Login'));
 const Register = lazy(() => import('../pages/public/Register'));
+const Info = lazy(() => import('../pages/public/Info'));
 const Services = lazy(() => import('../pages/Services'));
 const ServiceDetail = lazy(() => import('../pages/ServiceDetail'));
 const ThekedarProfile = lazy(() => import('../pages/ThekedarProfile'));
@@ -78,6 +80,9 @@ function ThekedarShell() {
 }
 
 function PublicRoutes() {
+  const location = useLocation();
+  const hideFooter = ['/login', '/register'].includes(location.pathname);
+
   return (
     <>
       <Navbar />
@@ -86,6 +91,7 @@ function PublicRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/info" element={<Info />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/thekedars/:id" element={<ThekedarProfile />} />
@@ -128,6 +134,7 @@ function PublicRoutes() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>
+      {!hideFooter && <Footer />}
     </>
   );
 }

@@ -61,8 +61,8 @@ export default function ThekedarProfile() {
           <svg className="w-3 h-3 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
           <span className="text-ink">{thekedar?.name || '...'}</span>
         </nav>
-        ...
-                  <p className="text-[18px] font-bold text-ink">{thekedar.experience || 'Verified Contractor'}</p>
+
+        {loading && (
           <div className="animate-pulse space-y-8">
             <div className="h-64 bg-white rounded-3xl border border-rule/50 shadow-sm" />
             <div className="h-32 bg-white rounded-3xl border border-rule/50 shadow-sm" />
