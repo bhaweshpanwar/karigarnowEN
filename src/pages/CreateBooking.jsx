@@ -34,6 +34,13 @@ export default function CreateBooking() {
   const [selectedAddressId, setSelectedAddressId] = useState('');
   const [addressSelectionMode, setAddressSelectionMode] = useState('saved'); // 'saved' or 'map'
   const [mapMarkerAddress, setMapMarkerAddress] = useState(null);
+  const [mapAddressDetails, setMapAddressDetails] = useState({
+    address_line1: '',
+    city: '',
+    state: '',
+    country: 'India',
+    postal_code: '',
+  });
   const [isMapLocationSelected, setIsMapLocationSelected] = useState(false);
   const [locationSearch, setLocationSearch] = useState('');
 
@@ -70,7 +77,23 @@ export default function CreateBooking() {
       );
       const data = await res.json();
       if (data.features && data.features.length > 0) {
-        const address = data.features[0].place_name;
+        const feature = data.features[0];
+        const address = feature.place_name;
+        
+        // Extract structured components for address creation
+        const city = feature.context?.find(c => c.id.startsWith('place'))?.text || 'Indore';
+        const state = feature.context?.find(c => c.id.startsWith('region'))?.text || 'Madhya Pradesh';
+        const postal = feature.context?.find(c => c.id.startsWith('postcode'))?.text || '452001';
+        const country = feature.context?.find(c => c.id.startsWith('country'))?.text || 'India';
+
+        setMapAddressDetails({
+          address_line1: address,
+          city: city,
+          state: state,
+          country: country,
+          postal_code: postal,
+        });
+
         setMapMarkerAddress(address);
         setIsMapLocationSelected(true);
         setSelectedAddressId('');
@@ -138,7 +161,9 @@ export default function CreateBooking() {
       return 'Selected time has already passed. Please choose a future time.';
     }
 
-    if (!selectedAddressId && !isMapLocationSelected) return 'Please select an address';
+    if (!selectedAddressId && !isMapLocationSelected) return 'Please select an address or pin a location on the map';
+    if (isMapLocationSelected && !mapMarkerAddress) return 'Please select a point on the map first';
+    
     if (!form.job_description || form.job_description.trim().length < 20) return 'Job description must be at least 20 characters';
     return '';
   };
@@ -151,6 +176,29 @@ export default function CreateBooking() {
     setSubmitting(true);
     setError('');
     try {
+      let addressId = selectedAddressId;
+
+      // If map location is selected, create the address entry first
+      if (isMapLocationSelected && !addressId) {
+        try {
+          const addrRes = await api.post('/addresses', {
+            ...mapAddressDetails,
+            is_primary: false
+          });
+          if (addrRes.data.success) {
+            addressId = addrRes.data.data.id;
+          } else {
+            throw new Error('Failed to register the new map location.');
+          }
+        } catch (addrErr) {
+          throw new Error('Location Save Error: ' + (addrErr.response?.data?.message || 'Could not save map location as a valid address.'));
+        }
+      }
+
+      if (!addressId) {
+        throw new Error('Address identification failed. Please select an address again.');
+      }
+
       const scheduledAt = `${form.scheduled_date}T${form.scheduled_time}:00`;
       const payload = {
         thekedarId: thekedarId,
@@ -158,14 +206,15 @@ export default function CreateBooking() {
         workersNeeded: form.workers_needed,
         jobDescription: form.job_description,
         scheduledAt: scheduledAt,
-        addressId: selectedAddressId,
+        addressId: addressId,
       };
+      
       const res = await api.post('/bookings', payload);
       if (res.data.success) {
         navigate(`/bookings/${res.data.data.id}`);
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to create booking. Please try again.');
+      setError(err.response?.data?.message || err.message || 'Failed to create booking. Please try again.');
     } finally {
       setSubmitting(false);
     }
@@ -274,7 +323,7 @@ export default function CreateBooking() {
                     <select name="scheduled_time" value={form.scheduled_time} onChange={handleChange} required
                       className="w-full px-4 py-3 rounded-xl bg-bg border border-rule text-ink text-[14px] font-bold outline-none focus:border-accent transition-all appearance-none cursor-pointer">
                       <option value="">Select</option>
-                      {['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'].map(t => (
+                      {['08:00','09:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00'].map(t => (
                         <option key={t} value={t}>{t}</option>
                       ))}
                     </select>

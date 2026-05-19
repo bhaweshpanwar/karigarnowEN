@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import useAuth from '../hooks/useAuth';
 import Navbar from '../components/common/Navbar';
 import Footer from '../components/common/Footer';
+import ScrollToTop from '../components/common/ScrollToTop';
 
 const Home = lazy(() => import('../pages/public/Home'));
 const Login = lazy(() => import('../pages/public/Login'));
@@ -86,6 +87,7 @@ function PublicRoutes() {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       <Suspense fallback={<FullPageSpinner />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -138,6 +140,7 @@ function PublicRoutes() {
     </>
   );
 }
+
 
 export default function AppRoutes() {
   return (

@@ -85,7 +85,24 @@ export default function ServiceDetail() {
       .finally(() => { setLoading(false); setLoadingMore(false); });
   };
 
-  useEffect(() => { fetchService(0); }, [slug, sort]);
+  useEffect(() => {
+    // Try to get user's city from their addresses
+    if (user) {
+      api.get('/addresses')
+        .then(res => {
+          if (res.data.success && res.data.data.length > 0) {
+            const primary = res.data.data.find(a => a.is_primary) || res.data.data[0];
+            if (primary.city) {
+              setCity(primary.city);
+              // fetchService(0) will be triggered by the city change if we add it to deps
+            }
+          }
+        })
+        .catch(err => console.error("Failed to load addresses for city filter", err));
+    }
+  }, [user]);
+
+  useEffect(() => { fetchService(0); }, [slug, sort, city]);
 
   const handleSearch = e => {
     e.preventDefault();
@@ -122,17 +139,6 @@ export default function ServiceDetail() {
                 <p className="text-mid text-[16px] font-medium leading-relaxed opacity-80">
                   {service.description}
                 </p>
-              </div>
-              <div className="flex items-center gap-6 pb-2">
-                <div className="text-right">
-                  <p className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-1">Thekedars</p>
-                  <p className="font-display text-[24px] font-black text-ink">24 available</p>
-                </div>
-                <div className="w-px h-12 bg-rule"></div>
-                <div className="text-right">
-                  <p className="text-[10px] font-bold text-muted uppercase tracking-[0.2em] mb-1">Avg Rate</p>
-                  <p className="font-display text-[24px] font-black text-accent2">₹450/hr</p>
-                </div>
               </div>
             </div>
           )}
